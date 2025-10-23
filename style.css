@@ -69,12 +69,20 @@ nav ul li {
     display: block;
 }
 
+.nav-desktop {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-mobile {
+    display: none;
+}
+
 /* =========================
    HEADER / TITULO
 ========================= */
 #titulo {
     padding-top: 0.5em;
-    /* escalable */
     padding-bottom: 0.25em;
     text-align: center;
 }
@@ -141,7 +149,6 @@ footer {
     align-items: center;
     position: relative;
     padding-top: 0.1875em;
-    /* 3% de algún contenedor */
 }
 
 footer p {
@@ -151,7 +158,6 @@ footer p {
 footer img {
     position: absolute;
     right: 1.25em;
-    /* 20px */
     top: 50%;
     transform: translateY(-50%);
 }
@@ -160,8 +166,8 @@ footer img {
    RESPONSIVE
 ========================= */
 
-/* MÓVIL (hasta 37.5em ≈ 600px) */
-@media (max-width: 37.5em) {
+/* MÓVIL (hasta 38.5em ≈ 700px) */
+@media (max-width: 38.5em) {
     #titulo {
         padding-top: 4em;
         padding-bottom: 3em;
@@ -180,7 +186,7 @@ footer img {
         font-size: clamp(1.1em, 4vw, 1.25em);
     }
 
-    #menu-toggle {
+    #menu-lateral {
         display: block;
         position: fixed;
         top: 1em;
@@ -203,7 +209,7 @@ footer img {
         /* aparece desde el lado izquierdo */
         height: 100vh;
         /* ocupa toda la altura de la pantalla */
-        width: 70%;
+        width: 30%;
         /* ancho del sidebar */
         flex-direction: column;
         /* elementos uno debajo de otro */
@@ -232,21 +238,30 @@ footer img {
         display: block;
     }
 
+    .nav-escritorio {
+        display: none;
+    }
+
+    .nav-movil {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 30em;
+    }
+
     footer img {
-        position: static;
-        transform: none;
-        margin-left: 0.625em;
+        display: none;
     }
 }
 
 
-/* TABLET (37.563em a 64em ≈ 601px a 1024px) */
-@media (min-width: 37.563em) and (max-width: 64em) {
+/* TABLET (37.563em a 64em ≈ 701px a 1024px) */
+@media (min-width: 38.563em) and (max-width: 64em) {
     #contenido {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    #titulo{
+
+    #titulo {
         padding-top: 6em;
         padding-bottom: 4em;
     }
@@ -258,16 +273,31 @@ footer img {
     h2 {
         font-size: 1.375em;
     }
+
+    .nav-movil{
+        display: none;
+    }
+
+    footer {
+        padding-top: 2em;
+    }
+
+    footer img {
+        padding-top: 3em;
+        padding-bottom: 1em;
+    }
 }
 
 /* ESCRITORIO (>64em ≈ 1025px) */
 @media (min-width: 64.063em) {
     #contenido {
         grid-template-columns: repeat(3, 1fr);
-        padding-top: 8em;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        ;
     }
 
-    #titulo{
+    #titulo {
         padding-top: 6em;
         padding-bottom: 5em;
     }
@@ -278,5 +308,18 @@ footer img {
 
     h2 {
         font-size: var(--fontsizeh2);
+    }
+
+    .nav-movil{
+        display: none;
+    }
+
+    footer {
+        padding-top: 2em;
+    }
+
+    footer img {
+        padding-top: 3em;
+        padding-bottom: 2em;
     }
 }
